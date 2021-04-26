@@ -6,6 +6,7 @@ namespace CSBasic2
     {
         static void Main(string[] args)
         {
+            /*
             // 짝수 홀수 구분
             Console.Write("숫자 입력:");
             int input = int.Parse(Console.ReadLine());
@@ -38,6 +39,19 @@ namespace CSBasic2
             if (DateTime.Now.Hour > 12)
             {
                 Console.WriteLine("오후 입니다.");
+            }*/
+
+            //if elesif else
+            if (DateTime.Now.Hour < 11)
+            {
+                Console.WriteLine("아침");
+            }else if(DateTime.Now.Hour < 2)
+            {
+                Console.WriteLine("점심");
+            }
+            else
+            {
+                Console.WriteLine("저녁");
             }
         }
     }
