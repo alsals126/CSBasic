@@ -88,6 +88,12 @@ namespace CSBasic2
                     Console.WriteLine("지구인가요?");
                     break;
             }
+
+            // 삼항 연산자
+            Console.WriteLine("자연수 판별기");
+            Console.Write("숫자를 입력하세요:");
+            int number7 = int.Parse(Console.ReadLine());
+            Console.WriteLine((number7 > 0) ? "자연수" : "자연수 아님");
         }
     }
 }
