@@ -49,6 +49,31 @@ namespace CSBasic3
                         break;
                 }
             } while (input != "exit");
+
+            string[] array = { "사과", "배", "포도", "딸기", "바나나" };
+            //for를 쓰고 tab 2번 누르기 => 자동완성
+            foreach (var item in array)// 타입을 쓸 필요가 없다. => var 사용
+            {
+                Console.WriteLine(item);
+            }
+
+            //별찍기1
+            for(i = 0; i<10; i++)
+            {
+                for (int j = 0; j < i + 1; j++)
+                    Console.Write("*");
+                Console.WriteLine("");
+                // Console.Write("\n");
+            }
+            //별찍기2
+            for(i=0; i<10; i++)
+            {
+                for (int j = 0; j < 10 - i; j++)
+                    Console.Write(' ');
+                for (int j = 0; j < i + 1; j++)
+                    Console.Write('*');
+                Console.Write('\n');
+            }
         }
     }
 }
