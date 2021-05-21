@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSBasic3
@@ -73,6 +74,68 @@ namespace CSBasic3
                 for (int j = 0; j < i + 1; j++)
                     Console.Write('*');
                 Console.Write('\n');
+            }
+
+            // toupper, tolower
+            // C#은 문자열(string) 관련된 메소드들의 원본을 건들지 않는다.
+            string inputString = "Potato Tomato";
+            inputString.ToUpper(); // return POTATO TOMATO
+            Console.WriteLine(inputString); // Potato Tomato
+            Console.WriteLine(inputString.ToLower()); // potato tomato
+
+            // split
+            string foodString = "감자 고구마 토마토 치킨";
+            string[] foods = foodString.Split(new char[] { ' ' });
+            foreach(var food in foods)
+            {
+                Console.WriteLine(food);
+            }
+
+            string pathString = "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server\\bin;%SystemRoot%\\system32;%SystemRoot%;%SystemRoot%\\System32\\Wbem;%SYSTEMROOT%\\System32\\WindowsPowerShell\\v1.0\\;%SYSTEMROOT%\\System32\\OpenSSH\\;C:\\Program Files\\dotnet\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files\\Git\\cmd;%JAVA_HOME%\\bin\\;";
+            string[] paths = pathString.Split(new char[] { ';' });
+            foreach (var path in paths)
+                Console.WriteLine(path);
+
+            // trim
+            string StrangeInput = " test \n     \n ";
+            Console.WriteLine("[" + StrangeInput + "]");
+            Console.WriteLine("[" + StrangeInput.Trim() + "]");
+
+            string[] foodsArray = { "감자", "고구마", "토마토" };
+            Console.WriteLine(string.Join(",", foodsArray));
+
+            // Thread.Sleep() 메서드
+            // 바가 증가하는거, 지렁이게임같은거 만들 수 있다.
+            // ncurses 라이브러리를 쓰는것도 괜찮다.
+            Console.Clear();
+            Console.WriteLine("포맷 중 :  0%  [__________]");
+            for(int f=0; f<10; f++)
+            {
+
+                Console.SetCursorPosition(0,0);
+                Console.Write("포맷 중 :  ");
+                Console.Write((f + 1) * 10 + "%  [");
+                for (int f2 = 0; f2 < f+1; f2++)
+                    Console.Write("#");
+                for (int f2 = f+1; f2 < 10; f2++)
+                    Console.Write("_");
+                Console.Write("]");
+                Thread.Sleep(1000);
+            }
+
+            int x = 1;
+            while(x<50)
+            {
+                Console.Clear();
+                Console.SetCursorPosition(x, 5);
+                if (x % 3 == 0)
+                    Console.WriteLine("__@");
+                else if (x % 3 == 1)
+                    Console.WriteLine("_^@");
+                else
+                    Console.WriteLine("^_@");
+                Thread.Sleep(1000);
+                x++;
             }
         }
     }
