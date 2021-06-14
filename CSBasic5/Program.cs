@@ -9,7 +9,7 @@ namespace CSBasic5
     class Program
     {
         static void Main(string[] args)
-        {
+        {+
         }
     }
 }
