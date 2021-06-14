@@ -20,6 +20,10 @@ namespace CSBasic5
             MyMath.Abs(52.273f);
             MyMath.Abs(52.273);
             MyMath.Abs(3000000000);
+
+            ml.somePublic();
+            //ml.someDefault();
+            //ml.someDefault();
         }
         class MyMath
         {
