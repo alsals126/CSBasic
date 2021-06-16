@@ -89,7 +89,17 @@ namespace CSBasic5
             public int Height
             {
                 get { return height; }
-                set { this.height = value; }
+                set
+                {
+                    if (value > 0)
+                    {
+                        this.height = value;
+                    }
+                    else
+                    {
+                        Console.WriteLine("높이는 양수를 입력해주세요");
+                    }
+                }
             }
 
             public Box(int width, int height)
