@@ -38,7 +38,79 @@ namespace CSBasic5
             Console.WriteLine(Sample.value);
             //Sample sample = new Sample();
             Console.WriteLine("세 번째 위치");
+
+            Box box = new Box(10, 10);
+            box.Height = 100;
+            box.Width = 200;
+            box.price = 3000;
+            Console.WriteLine("박스의 면적은 : " + box.Area);
         }
+
+        class Box
+        {
+            // 기존 getter setter 방식
+            /*
+            public int width;
+            public int height;
+
+            public Box(int width, int height)
+            {
+                this.width = width;
+                this.height = height;
+            }
+            public int Area()
+            {
+                return this.width * this.height;
+            }*/
+
+            //템플릿 이용하면 편하다!!
+            //prop
+            //propfull
+            public int some { get; set; }
+            public int MyProperty { get; set; }
+            public int price { get; set; }
+
+            private int width;
+            public int Width
+            {
+                get { return width; }
+                set {
+                    if (value > 0)
+                    {
+                        this.width = value;
+                    }
+                    else
+                    {
+                        Console.WriteLine("너비는 양수를 입력해주세요");
+                    }
+                }
+            }
+            private int height;
+            public int Height
+            {
+                get { return height; }
+                set { this.height = value; }
+            }
+
+            public Box(int width, int height)
+            {
+                this.width = width;
+                this.height = height;
+            }
+
+            private int area;
+            public int Area
+            {
+                get { return this.width * this.height; }
+            }
+
+            /*
+            public int Area()
+            {
+                return this.width * this.height;
+            }*/
+        }
+
         class Sample
         {
             public static int value;
