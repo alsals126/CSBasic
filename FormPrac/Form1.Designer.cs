@@ -32,6 +32,8 @@ namespace FormPrac
             this.btnMessageBox1 = new System.Windows.Forms.Button();
             this.btnMessageBox2 = new System.Windows.Forms.Button();
             this.btnMessageBox3 = new System.Windows.Forms.Button();
+            this.btnModaless = new System.Windows.Forms.Button();
+            this.btnModal = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMessageBox1
@@ -64,11 +66,33 @@ namespace FormPrac
             this.btnMessageBox3.UseVisualStyleBackColor = true;
             this.btnMessageBox3.Click += new System.EventHandler(this.btnMessageBox_Click);
             // 
+            // btnModaless
+            // 
+            this.btnModaless.Location = new System.Drawing.Point(480, 12);
+            this.btnModaless.Name = "btnModaless";
+            this.btnModaless.Size = new System.Drawing.Size(210, 196);
+            this.btnModaless.TabIndex = 3;
+            this.btnModaless.Text = "모달리스 창 띄우기";
+            this.btnModaless.UseVisualStyleBackColor = true;
+            this.btnModaless.Click += new System.EventHandler(this.btnModaless_Click);
+            // 
+            // btnModal
+            // 
+            this.btnModal.Location = new System.Drawing.Point(480, 242);
+            this.btnModal.Name = "btnModal";
+            this.btnModal.Size = new System.Drawing.Size(210, 196);
+            this.btnModal.TabIndex = 4;
+            this.btnModal.Text = "모달 창 띄우기";
+            this.btnModal.UseVisualStyleBackColor = true;
+            this.btnModal.Click += new System.EventHandler(this.btnModaless_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 450);
+            this.ClientSize = new System.Drawing.Size(706, 450);
+            this.Controls.Add(this.btnModal);
+            this.Controls.Add(this.btnModaless);
             this.Controls.Add(this.btnMessageBox3);
             this.Controls.Add(this.btnMessageBox2);
             this.Controls.Add(this.btnMessageBox1);
@@ -83,6 +107,8 @@ namespace FormPrac
         private System.Windows.Forms.Button btnMessageBox1;
         private System.Windows.Forms.Button btnMessageBox2;
         private System.Windows.Forms.Button btnMessageBox3;
+        private System.Windows.Forms.Button btnModaless;
+        private System.Windows.Forms.Button btnModal;
     }
 }
 
