@@ -38,8 +38,33 @@ namespace CSBasic7
     class Student { }
     class Program
     {
+        static void NextPosition(int x, int y, int vx, int vy, out int rx, out int ry)
+        {
+            rx = x + vx;
+            ry = y + vy;
+        }
         static void Main(string[] args)
         {
+            int x = 0;
+            int y = 0;
+            int vx = 100;
+            int vy = 100;
+            Console.WriteLine("현재 좌표: (" + x + "," + y + ")");
+            NextPosition(x, y, vx, vy, out x, out y);
+            Console.WriteLine("다음 좌표: (" + x + "," + y + ")");
+
+            Console.WriteLine("숫자 입력: ");
+            int output = int.MinValue; //사용자가 적지 않을 숫자로 초기화한다.
+            bool result = int.TryParse(Console.ReadLine(), out output);
+            if (result)
+            {
+                Console.WriteLine("입력한 숫자: " + output);
+            }
+            else
+            {
+                Console.WriteLine("숫자를 입력해주세요!" + output);
+            }
+
             Products p = new Products();
             Console.WriteLine(p[2]);
             Console.WriteLine((new Products())[2]);
