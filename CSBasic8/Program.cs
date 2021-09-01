@@ -8,6 +8,14 @@ namespace CSBasic8
 {
     class Program 
     {
+        class Dummy : IDisposable
+        {
+            public void Dispose()
+            {
+                Console.WriteLine("Dispose() 메서드 호출!");
+            }
+        }
+
         class Product : IComparable
         {
             public string Name { get; set; }
@@ -29,6 +37,11 @@ namespace CSBasic8
         }
         static void Main(string[] args)
         {
+            using(Dummy dummy = new Dummy())
+            {
+                Console.WriteLine("뭔가 작업을 했음. 주절주절");
+            }
+
             List<Product> list = new List<Product>()
             {
                 new Product() { Name = "고구마", Price=1500},
