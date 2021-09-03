@@ -42,6 +42,31 @@ namespace CSBasic8_label
             Controls.Add(checkBox2);
             Controls.Add(checkBox3);
             Controls.Add(button);
+
+            RadioButton radio1 = new RadioButton() { Text = "감자", Location = new Point(250, 10) };
+            RadioButton radio2 = new RadioButton() { Text = "고구마", Location = new Point(250, 40) };
+            RadioButton radio3 = new RadioButton() { Text = "토마토", Location = new Point(250, 70) };
+            Button radioButton = new Button() { Text = "라디오", Location = new Point(250, 100) };
+            Controls.Add(radio1);
+            Controls.Add(radio2);
+            Controls.Add(radio3);
+            Controls.Add(radioButton);
+            radioButton.Click += radioButtonClick;
+        }
+
+        private void radioButtonClick(object sender, EventArgs e)
+        {
+            foreach(var item in Controls)
+            {
+                if(item is RadioButton)
+                {
+                    RadioButton rb = item as RadioButton;
+                    if(rb.Checked)
+                    {
+                        MessageBox.Show(rb.Text);
+                    }
+                }
+            }
         }
 
         private void ButtonClick(object sender, EventArgs e)
