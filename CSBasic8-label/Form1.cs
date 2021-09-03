@@ -12,6 +12,7 @@ namespace CSBasic8_label
 {
     public partial class Form1 : Form
     {
+        GroupBox groupBox1;
         public Form1()
         {
             InitializeComponent(); //기본적인 초기화
@@ -43,27 +44,50 @@ namespace CSBasic8_label
             Controls.Add(checkBox3);
             Controls.Add(button);
 
-            RadioButton radio1 = new RadioButton() { Text = "감자", Location = new Point(250, 10) };
-            RadioButton radio2 = new RadioButton() { Text = "고구마", Location = new Point(250, 40) };
-            RadioButton radio3 = new RadioButton() { Text = "토마토", Location = new Point(250, 70) };
-            Button radioButton = new Button() { Text = "라디오", Location = new Point(250, 100) };
-            Controls.Add(radio1);
-            Controls.Add(radio2);
-            Controls.Add(radio3);
+            groupBox1 = new GroupBox() { Text = "식물", Size = new Size(120, 100), Location = new Point(250, 10) };
+            RadioButton radio1 = new RadioButton() { Text = "감자", Location = new Point(10, 10) };
+            RadioButton radio2 = new RadioButton() { Text = "고구마", Location = new Point(10, 40) };
+            RadioButton radio3 = new RadioButton() { Text = "토마토", Location = new Point(10, 70) };
+
+            GroupBox groupBox2 = new GroupBox() { Text = "고기", Size = new Size(120, 100), Location = new Point(370, 10) };
+            RadioButton radio4 = new RadioButton() { Text = "탕수육", Location = new Point(10, 10) };
+            RadioButton radio5 = new RadioButton() { Text = "갈비", Location = new Point(10, 40) };
+            RadioButton radio6 = new RadioButton() { Text = "치킨", Location = new Point(10, 70) };
+
+            Button radioButton = new Button() { Text = "라디오", Location = new Point(250, 120) };
+            groupBox1.Controls.Add(radio1);
+            groupBox1.Controls.Add(radio2);
+            groupBox1.Controls.Add(radio3);
+            groupBox2.Controls.Add(radio4);
+            groupBox2.Controls.Add(radio5);
+            groupBox2.Controls.Add(radio6);
+            Controls.Add(groupBox1);
+            Controls.Add(groupBox2);
             Controls.Add(radioButton);
             radioButton.Click += radioButtonClick;
         }
 
         private void radioButtonClick(object sender, EventArgs e)
         {
-            foreach(var item in Controls)
+            foreach(RadioButton item1 in groupBox1.Controls)
             {
-                if(item is RadioButton)
+                if(item1.Checked)
                 {
-                    RadioButton rb = item as RadioButton;
-                    if(rb.Checked)
+                    MessageBox.Show(item1.Text);
+                }
+            }
+
+            foreach (var outerItem in Controls)
+            {
+                if (outerItem is GroupBox)
+                {
+                    GroupBox gb = outerItem as GroupBox;
+                    foreach (var item in gb.Controls)
                     {
-                        MessageBox.Show(rb.Text);
+                        if (item is RadioButton && (item as RadioButton).Checked)
+                        {
+                            MessageBox.Show((item as RadioButton).Text);
+                        }
                     }
                 }
             }
